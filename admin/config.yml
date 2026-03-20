@@ -1,0 +1,53 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "work"
+    label: "The Work"
+    folder: "content/work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Date", name: "date", widget: "date" }
+      - { label: "Type", name: "type", widget: "select", options: ["Painting", "Installation", "Sculpture", "Mixed Media"] }
+
+  - name: "images"
+    label: "Images"
+    folder: "content/images"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "text", required: false }
+      - { label: "Date", name: "date", widget: "date" }
+      - { label: "Category", name: "category", widget: "select", options: ["Shoot", "Process", "BTS", "Exhibition"] }
+
+  - name: "writings"
+    label: "Writings"
+    folder: "content/writings"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "date" }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Video URL", name: "url", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Date", name: "date", widget: "date" }
+      - { label: "Platform", name: "platform", widget: "select", options: ["TikTok", "Instagram", "YouTube"] }
